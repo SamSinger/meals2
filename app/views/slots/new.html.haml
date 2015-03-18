@@ -1,0 +1,26 @@
+%section.container
+  %h1 Please select a date, meal, and service type
+  .row
+    .col-sm-3.col-sm-offset-4
+      = bootstrap_form_for :slots do |f|
+        %header
+          %fieldset
+          %h4 Date of service?
+          = week_field(:user, :born_on)
+          
+          %h4 Which meal?
+          = radio_button_tag(:which_meal, "breakfast")
+          = label_tag(:which_meal_breakfast, "Breakfast")
+          %br
+          = radio_button_tag(:which_meal, "lunch")
+          = label_tag(:which_meal_lunch, "Lunch")
+          %h4 Which services?
+          = check_box_tag(:prepare_serve_meal)
+          = label_tag(:prepare_serve_meal, "We will prepare and serve the meal")
+          %br/
+          = check_box_tag(:provide_fellowship)
+          = label_tag(:provide_fellowship, "We will provide fellowship with folks")
+          %br/
+
+        %fieldset
+          %input(type="submit" value="Sign Up" class="btn btn-default")

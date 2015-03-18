@@ -1,0 +1,15 @@
+%section.container
+  .row
+    .col-sm-3.col-sm-offset-4
+      = bootstrap_form_for :user do |f|
+        %header
+          %h1 Register
+        %fieldset
+          = f.email_field :email, label: "Email address"
+          = f.password_field :password, label: "Password" 
+          = f.text_field :firstname, label: "First name"
+          = f.text_field :lastname, label: "Last name"
+          = f.text_field :organization_name, label: "Organization"
+          /= f.text_field :role, label: "Role"
+        %fieldset
+          %input(type="submit" value="Sign Up" class="btn btn-default")
