@@ -4,13 +4,10 @@ development:
   database: meals_development
   pool: 5
   host: localhost
-  username: singess
-  password: 
-
+  
 test:
   adapter: postgresql
   encoding: unicode
   database: meals_test
   pool: 5
-  username: singess
-  password:
+  
