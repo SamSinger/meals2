@@ -33,11 +33,16 @@ gem 'spring',        group: :development
 group :development, :test do
   gem 'pry'
   gem 'pry-nav'
+<<<<<<< HEAD
   gem 'rspec-rails', '3.2'
 end
 
 group :production do
   gem 'rails_12factor'
+=======
+  gem 'rspec-rails', '2.99'
+  gem 'fabrication'
+>>>>>>> 202583cddd7963e0b29be034390f9f611abf9985
 end
  
 

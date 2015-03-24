@@ -13,9 +13,12 @@
 
 ActiveRecord::Schema.define(version: 20150317213245) do
 
+<<<<<<< HEAD
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+=======
+>>>>>>> 202583cddd7963e0b29be034390f9f611abf9985
   create_table "service_assignments", force: true do |t|
     t.integer  "user_id"
     t.integer  "service_id"
@@ -24,8 +27,13 @@ ActiveRecord::Schema.define(version: 20150317213245) do
     t.datetime "updated_at",      null: false
   end
 
+<<<<<<< HEAD
   add_index "service_assignments", ["service_id"], name: "index_service_assignments_on_service_id", using: :btree
   add_index "service_assignments", ["user_id"], name: "index_service_assignments_on_user_id", using: :btree
+=======
+  add_index "service_assignments", ["service_id"], name: "index_service_assignments_on_service_id"
+  add_index "service_assignments", ["user_id"], name: "index_service_assignments_on_user_id"
+>>>>>>> 202583cddd7963e0b29be034390f9f611abf9985
 
   create_table "services", force: true do |t|
     t.string   "prepare_serve_breakfast"
