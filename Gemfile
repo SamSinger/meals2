@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 gem "haml-rails", "~> 0.9"
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.3'
@@ -33,7 +33,11 @@ gem 'spring',        group: :development
 group :development, :test do
   gem 'pry'
   gem 'pry-nav'
-  gem 'rspec-rails', '2.99'
+  gem 'rspec-rails', '3.2'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
  
 
