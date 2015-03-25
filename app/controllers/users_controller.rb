@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       #binding.pry
-      redirect_to slots_path
+      redirect_to services_path
       flash[:notice] = "You are registered!"
     else
       render :new

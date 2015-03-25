@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  get '/home', to: 'slots#new'
-  get 'slots/index'
+  get '/home', to: 'services#new'
+  get 'services/index'
 
-  get 'slots/new'
+  get 'services/new'
 
   get 'users/index'
 
@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get 'sign_in', to: 'sessions#new'
   get 'sign_out', to: 'sessions#destroy'
   resources :users
-  resources :slots
+  resources :services
   resources :sessions, only: [:create]
   root 'welcome#index'
+ 
 end

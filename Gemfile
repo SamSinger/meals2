@@ -21,11 +21,13 @@ group :development, :test do
   gem 'pry'
   gem 'pry-nav' 
   gem 'rspec-rails', '3.2'
+  gem 'fabrication' 
+  gem 'faker'
 end
 
 group :production do
   gem 'rails_12factor'  
-  gem 'fabrication' 
+  
 end
  
 

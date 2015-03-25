@@ -11,9 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317213245) do
+ActiveRecord::Schema.define(version: 20150325161804) do
 
- 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "service_assignments", force: true do |t|
     t.integer  "user_id"
     t.integer  "service_id"
@@ -22,28 +24,13 @@ ActiveRecord::Schema.define(version: 20150317213245) do
     t.datetime "updated_at",      null: false
   end
 
- 
-  add_index "service_assignments", ["service_id"], name: "index_service_assignments_on_service_id"
-  add_index "service_assignments", ["user_id"], name: "index_service_assignments_on_user_id"
- 
+  add_index "service_assignments", ["service_id"], name: "index_service_assignments_on_service_id", using: :btree
+  add_index "service_assignments", ["user_id"], name: "index_service_assignments_on_user_id", using: :btree
 
   create_table "services", force: true do |t|
-    t.string   "prepare_serve_breakfast"
-    t.string   "provide_fellowship_breakfast"
-    t.string   "prepare_serve_lunch"
-    t.string   "provide_fellowship_lunch"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-  end
-
-  create_table "slots", force: true do |t|
-    t.date     "slot_date"
-    t.string   "which_meal"
-    t.boolean  "prepare_serve_meal"
-    t.boolean  "provide_fellowship"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "users", force: true do |t|
