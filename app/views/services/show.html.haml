@@ -3,4 +3,7 @@
 =simple_form_for :slots, :url => service_assignments_path do |f|
   - @service_builder.slots.group_by(&:assignment_date).each do |days|
     =fields_for :days do |day_form|
+    # days[service_id][assignment_date]
+    / <label>Label name</label>
+    / <input type="checkbox" name="slot[1][2015-01-01][]"
       =day_form.text_field :user_id
