@@ -10,7 +10,7 @@ class ServiceBuilder
     slots = []
     start_date.upto(start_date + 6.days).each do |day|
       Service.all.each do |service|
-        slots << ServiceAssignment.new(user: user, assignment_date: day, service: service)
+        slots << ServiceAssignment.find_or_initialize_by(user: user, assignment_date: day, service: service)
       end      
     end
     slots

@@ -1,7 +1,7 @@
 class ServicesController < ApplicationController
   
-  before_action :set_user, only: [:index, :show, :edit, :update]
-  before_action :require_same_user, only: [:index, :show, :edit, :update]
+  #before_action :set_user, only: [:index, :show, :edit, :update]
+  #before_action :require_same_user, only: [:index, :show, :edit, :update]
   before_filter :require_user
 
   def index
@@ -27,6 +27,7 @@ class ServicesController < ApplicationController
    
   def show
     @service = Service.find(params[:id])
+    @service_builder = ServiceBuilder.new(current_user, Date.today)
   end
 
   private

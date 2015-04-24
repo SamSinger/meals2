@@ -3,5 +3,6 @@ Fabricator(:user) do
   password "passxyx123"
   firstname "bob"
   lastname "brown"
+  role "admin"
   organization_name "Coke"
 end

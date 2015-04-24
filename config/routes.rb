@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/home', to: 'services#new'
-  get 'services/index'
+  get 'services/index', to: 'services#index'
 
   get 'services/new'
 
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'sign_out', to: 'sessions#destroy'
   resources :users
   resources :services
+  resources :service_assignments, only: [:create]
   resources :sessions, only: [:create]
   root 'welcome#index'
  

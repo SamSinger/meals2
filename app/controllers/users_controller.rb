@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   def index
-    
-  end
+    @users = User.all      
+    end
+  
 
   def new
     @user = User.new
@@ -23,7 +24,18 @@ class UsersController < ApplicationController
 private
 
   def user_params
-    params.require(:user).permit( :email, :password, :firstname, :lastname, :organization_name)
+      params.require(:user).permit(:id, :role, :firstname, :lastname, :email, :password, :organization_name)
+    end
+
+    def set_user
+      @user = User.find_by id: params[:id]
+    end
+
+    def require_same_user #but allow admin
+      if ! current_user.admin? && current_user != @user
+      flash[:error] = "You're not allowed to do that."
+      redirect_to root_path
+    end
   end
 
 end

@@ -1,0 +1,6 @@
+%h1= @service.name
+
+=simple_form_for :slots, :url => service_assignments_path do |f|
+  - @service_builder.slots.group_by(&:assignment_date).each do |days|
+    =fields_for :days do |day_form|
+      =day_form.text_field :user_id
