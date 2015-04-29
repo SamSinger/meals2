@@ -1,9 +1,13 @@
 %h1= @service.name
 
 =simple_form_for :slots, :url => service_assignments_path do |f|
-  - @service_builder.slots.group_by(&:assignment_date).each do |days|
-    =fields_for :days do |day_form|
-    # days[service_id][assignment_date]
-    / <label>Label name</label>
-    / <input type="checkbox" name="slot[1][2015-01-01][]"
-      =day_form.text_field :user_id
+  - @service_builder.slots.group_by(&:assignment_date).each.with_index do |(day, days), index|
+    %h3= day.strftime('%x')
+    - days.each.with_index do |service_assignment, index2|
+      =f.fields_for "service_assignment[#{(days.size * index) + index2}]", service_assignment  do |service_assignment_form|
+        =service_assignment_form.hidden_field :id
+        =service_assignment_form.hidden_field :service_id
+        =service_assignment_form.hidden_field :assignment_date
+        =service_assignment_form.check_box :taken? 
+        %label= service_assignment.service.name        
+  =submit_tag "Submit"

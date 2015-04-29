@@ -5,4 +5,6 @@ class ServiceAssignment < ActiveRecord::Base
   def taken?
     persisted?
   end
+
+   
 end
